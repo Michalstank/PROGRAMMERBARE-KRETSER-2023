@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity exercise3 is
 	port(
-		clk:			in	std_logic;
-		rst:			in std_logic;
-		data:			in std_logic;
+		clk:		in std_logic;
+		rst:		in std_logic;
+		data:		in std_logic;
 		
 		seq_found: 	out std_logic
 	);
@@ -35,47 +35,47 @@ begin
 	process(all) is
 	begin
 		case pr_state is
-			when st_1 => 	if data = '1' then
-									nx_state <= st_2;
+			when st_1 => 				if data = '1' then
+								nx_state <= st_2;
 								else
-									nx_state <= st_1;
+								nx_state <= st_1;
 								end if;
 								
 								seq_found <= '0';
 			
-			when st_2 => 	if data = '0' then
-									nx_state <= st_3;
+			when st_2 => 				if data = '0' then
+								nx_state <= st_3;
 								else
-									nx_state <= st_1;
+								nx_state <= st_1;
 								end if;
 								
 								seq_found <= '0';
 			
-			when st_3 => 	if data = '1' then
-									nx_state <= st_4;
+			when st_3 => 				if data = '1' then
+								nx_state <= st_4;
 								else
-									nx_state <= st_1;
+								nx_state <= st_1;
 								end if;
 								
 								seq_found <= '0';
 			
-			when st_4 => 	if data = '1' then
-									nx_state <= st_5;
+			when st_4 => 				if data = '1' then
+								nx_state <= st_5;
 								else
-									nx_state <= st_3;
+								nx_state <= st_3;
 								end if;
 								
 								seq_found <= '0';
 			
-			when st_5 =>	if data = '1' then
-									nx_state <= st_2;
+			when st_5 =>				if data = '1' then
+								nx_state <= st_2;
 								else
-									nx_state <= st_1;
+								nx_state <= st_1;
 								end if;
 								
 								seq_found <= '1';
 								
-			when others => seq_found <= '0';
+			when others => 				seq_found <= '0';
 								nx_state <= st_1;
 		end case;
 	end process;
